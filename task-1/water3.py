@@ -1,9 +1,14 @@
-def initial_state():
-    return (0, 0, 0)
+import water3 as problem
+import utils
+import ucs
 
-def is_goal(s):
-    return True
-
-def successors(s):
-    x, y, z = s
-    return []
+goal_node, n_visits = ucs.uniform_cost_graph_search(problem)
+if goal_node is not None:
+    print("Solution")
+    print("========")
+    utils.print_solution(goal_node)
+    print("========")
+    print("Path cost = %d" % goal_node[3])
+    print("Number of Visited States = %d" % n_visits)
+else:
+    print("No solutions found")
